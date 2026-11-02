@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Direct Media Download</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#121a2d;--line:#26344f;--text:#edf3ff;--muted:#a8b5cb;--blue:#3b82f6}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#17294b 0,var(--bg) 55%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    main{width:min(680px,calc(100% - 32px));margin:0 auto;padding:48px 0}.brand{display:flex;align-items:center;gap:12px;margin-bottom:32px;color:var(--muted);font-size:13px;letter-spacing:.08em}
+    .mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#2784ff,#7658f6);font-weight:800;color:#fff}h1{margin:0;font-size:clamp(30px,6vw,44px);line-height:1.1;letter-spacing:-.04em}
+    .intro{margin:14px 0 26px;color:var(--muted)}.card{padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(155deg,#151f35ee,#101729f2);box-shadow:0 18px 50px #0004}
+    label{display:block;margin-bottom:8px;font-size:14px;font-weight:650}.row{display:flex;gap:10px}input[type=url]{flex:1;min-width:0;padding:14px 15px;border:1px solid #334462;border-radius:12px;background:#0b1221;color:var(--text);font:inherit;outline:none}input[type=url]:focus{border-color:#6aa8ff;box-shadow:0 0 0 3px #3b82f633}
+    button{border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(100deg,#2682fa,#2369df);color:white;font:inherit;font-weight:700;cursor:pointer}.hint{margin:9px 0 16px;color:#91a0b9;font-size:13px}.consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0;color:var(--muted);font-size:13px}.consent input{margin-top:4px;accent-color:var(--blue)}
+    .notice{margin-top:16px;padding:12px 14px;border-radius:10px;background:#202b40;color:#dce7fa;font-size:13px}.fine{margin:18px 2px 0;color:#8290a8;font-size:12px}footer{padding:20px 2px 0;color:#74829a;font-size:12px}
+    @media(max-width:560px){main{padding-top:28px}.card{padding:18px}.row{flex-direction:column}button{width:100%}}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand"><span class="mark">↓</span><span>DIRECT MEDIA TOOL</span></div>
+    <h1>Download a media file</h1>
+    <p class="intro">Enter a direct link to a video or audio file. This tool does not extract media from social post pages.</p>
+    <section class="card" aria-label="Download form">
+      <form action="/api/download" method="get" target="_blank">
+        <label for="mediaUrl">Direct media-file URL</label>
+        <div class="row">
+          <input id="mediaUrl" name="url" type="url" inputmode="url" placeholder="https://example.com/video.mp4" required>
+          <button type="submit">Download file</button>
+        </div>
+        <p class="hint">Use a direct HTTP(S) link that returns a video or audio file—not a Facebook, Instagram, TikTok, or other social post link.</p>
+        <label class="consent"><input type="checkbox" required><span>I own this media or have permission to download it.</span></label>
+      </form>
+      <div class="notice">For safety, the server blocks private/local network addresses, follows only a few validated redirects, and limits files to 512 MiB.</div>
+      <p class="fine">Downloads are streamed through this server. Do not submit private links, login-protected media, or content you are not authorized to save.</p>
+    </section>
+    <footer>This project is independent and not affiliated with any social-media platform.</footer>
+  </main>
+</body>
+</html>
