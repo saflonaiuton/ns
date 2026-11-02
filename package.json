@@ -1,0 +1,13 @@
+{
+  "name": "my-website-direct-media",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A small Node.js site for downloading authorized direct video/audio file URLs.",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
